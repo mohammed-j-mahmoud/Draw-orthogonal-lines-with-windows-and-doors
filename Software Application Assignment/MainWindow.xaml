@@ -1,0 +1,44 @@
+﻿<Window x:Class="Software_Application_Assignment.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Software_Application_Assignment"
+        mc:Ignorable="d"
+        Title="Software Application Assignment" Height="650" Width="1200" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="85"/>
+        </Grid.RowDefinitions>
+        
+        <Border BorderBrush="DarkGray" BorderThickness="0.25" CornerRadius="0" Margin="0"  Grid.Row="0" >
+            <Canvas x:Name="DrawingCanvas"
+            Grid.Row="0"
+            Background="Transparent"
+            MouseLeftButtonDown="Canvas_MouseLeftButtonDown"
+            MouseRightButtonDown="Canvas_MouseRightButtonDown"
+            MouseMove="Canvas_MouseMove"
+            MouseLeftButtonUp="Canvas_MouseLeftButtonUp" >
+            </Canvas>
+        </Border>
+ 
+        <GroupBox Header="Drawing Mode" Grid.Row="1" Margin="10" Width="240" BorderThickness="1" FontWeight="Bold" HorizontalAlignment="Left" Background="WhiteSmoke">
+            <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Left"  Orientation="Horizontal">
+
+                <RadioButton Name="RadioButtonWall"  Margin="11" Content="Wall" IsChecked="True" Checked="CreateWall" FontWeight="Normal"></RadioButton>
+                <RadioButton Name="RadioButtonOpenings" Margin="11" Content="Openings" Checked="CreateOpenings" FontWeight="Normal"></RadioButton>
+                <Button Name="ButtonReset" Margin="11"  Content="Reset" Click="ClearCanvas" ClickMode="Release" FontWeight="Normal" Width="50" ToolTip="Right Click on Any Component To Delete It" >
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="2">
+                                
+                            </Setter>
+                        </Style>
+                    </Button.Resources> 
+                </Button>
+            </StackPanel>
+        </GroupBox>
+
+    </Grid>
+</Window>
